@@ -1,0 +1,21 @@
+{
+  "name": "ViralVoice AI Studio",
+  "short_name": "ViralVoice",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#2563eb",
+  "description": "Estudio de Voces Neurales de Televisión y Documentales",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

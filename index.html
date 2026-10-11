@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ViralVoice AI - Estudio de Voces</title>
+  <meta name="description" content="Generador de voces neuronales de cine, televisión y documentales para TikTok, Reels y YouTube. 100% Gratis.">
+  <meta name="theme-color" content="#0a0e17">
+  
+  <!-- Favicon y PWA Manifest -->
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="top-bar">
+        <span class="header-badge">🎙️ Nube 100% Gratuita</span>
+        <button id="btnInstall" class="btn-install" type="button">
+          📲 Instalar App
+        </button>
+      </div>
+      <h1>ViralVoice AI</h1>
+      <p class="subtitle">Voces neuronales de cine y documentales para tus videos virales</p>
+    </header>
+
+    <main class="card">
+      <!-- Entrada de Guión -->
+      <div class="form-group">
+        <div class="label-row">
+          <label for="scriptText">
+            ✍️ Guión de Narración
+          </label>
+          <div class="text-actions">
+            <button type="button" class="btn-mini" id="btnPaste">📋 Pegar</button>
+            <button type="button" class="btn-mini" id="btnClear">🗑️ Limpiar</button>
+          </div>
+        </div>
+
+        <textarea id="scriptText" placeholder="Escribe o pega aquí el guión de tu Reel, TikTok o video de YouTube..."></textarea>
+        
+        <div class="label-row">
+          <span class="helper-text" id="charCount">0 caracteres</span>
+          <span class="helper-text">Optimizado para narración continua</span>
+        </div>
+      </div>
+
+      <!-- Plantillas Rápidas -->
+      <div class="form-group">
+        <div class="label-row">
+          <span class="helper-text">💡 Ideas rápidas:</span>
+        </div>
+        <div class="templates-bar">
+          <button type="button" class="pill-btn" data-template="misterio">🌊 Misterio Abisal</button>
+          <button type="button" class="pill-btn" data-template="historia">🏛️ Historia Curiosa</button>
+          <button type="button" class="pill-btn" data-template="curiosidad">🧠 Dato Mental</button>
+          <button type="button" class="pill-btn" data-template="terror">🕯️ Relato de Terror</button>
+        </div>
+      </div>
+
+      <!-- Selector de Voces -->
+      <div class="form-group">
+        <label for="voiceSelect">🎭 Locutor / Voz Neuronal</label>
+        <select id="voiceSelect">
+          <optgroup label="🇲🇽 México (Cine y Documental)">
+            <option value="es-MX-JorgeNeural" selected>Jorge (Voz profunda de TV / Documentales)</option>
+            <option value="es-MX-DaliaNeural">Dalia (Femenina, cálida, documental)</option>
+            <option value="es-MX-GerardoNeural">Gerardo (Profundo, sobrio)</option>
+            <option value="es-MX-CecilioNeural">Cecilio (Narrador enérgico)</option>
+          </optgroup>
+          <optgroup label="🇨🇴 Colombia (Misterio y Relatos)">
+            <option value="es-CO-GonzaloNeural">Gonzalo (Misterio, drama, documentales)</option>
+            <option value="es-CO-SalomeNeural">Salomé (Juvenil, fresca, podcast)</option>
+          </optgroup>
+          <optgroup label="🇪🇸 España (Documentales Clásicos)">
+            <option value="es-ES-AlvaroNeural">Álvaro (Documental científico / Historia)</option>
+            <option value="es-ES-ElviraNeural">Elvira (Elegante, dramática)</option>
+          </optgroup>
+          <optgroup label="🇦🇷 Argentina (Dinámica y Enérgica)">
+            <option value="es-AR-TomasNeural">Tomás (Dinámico, narrador moderno)</option>
+            <option value="es-AR-ElenaNeural">Elena (Expresiva y clara)</option>
+          </optgroup>
+          <optgroup label="🇺🇸 US Latino (Noticias y Televisión)">
+            <option value="es-US-AlonsoNeural">Alonso (Noticiero y reportaje)</option>
+            <option value="es-US-PalomaNeural">Paloma (Periodística, formal)</option>
+          </optgroup>
+          <optgroup label="🇨🇱 Chile y 🇵🇪 Perú">
+            <option value="es-CL-LorenzoNeural">Lorenzo (Chile - Narrador neutro)</option>
+            <option value="es-PE-AlexNeural">Alex (Perú - Jovial y directo)</option>
+          </optgroup>
+          <optgroup label="🇺🇸 Inglés (Cine y Trailers)">
+            <option value="en-US-ChristopherNeural">Christopher (Trailer de película épico)</option>
+            <option value="en-US-GuyNeural">Guy (Narrador natural US)</option>
+            <option value="en-US-JennyNeural">Jenny (Narradora femenina US)</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <!-- Preset de Ecualizador / Filtro DSP -->
+      <div class="form-group">
+        <label for="dspPreset">🎛️ Masterización / Efecto de Estudio (DSP)</label>
+        <select id="dspPreset">
+          <option value="discovery" selected>🎬 Documental Discovery (Graves profundos + Brillo de cine)</option>
+          <option value="misterio">🌌 Misterio Abisal (Sub-graves masivos y oscuros)</option>
+          <option value="tiktok">⚡ TikTok & Reels Punch (Corte en medios y agudos súper nítidos)</option>
+          <option value="radio">📻 Radio FM Broadcast (Voz con presencia cercana al micrófono)</option>
+          <option value="natural">🔊 Voz Natural (Audio original sin ecualización)</option>
+        </select>
+      </div>
+
+      <!-- Ajustes Finos (Velocidad y Pitch) -->
+      <div class="row-2">
+        <div class="slider-group">
+          <div class="label-row">
+            <label for="speedSlider">⚡ Velocidad</label>
+            <span class="slider-val" id="speedVal">-3%</span>
+          </div>
+          <div class="slider-container">
+            <input type="range" id="speedSlider" min="-25" max="25" value="-3" step="1">
+          </div>
+        </div>
+
+        <div class="slider-group">
+          <div class="label-row">
+            <label for="pitchSlider">🎵 Tono / Pitch</label>
+            <span class="slider-val" id="pitchVal">-1Hz</span>
+          </div>
+          <div class="slider-container">
+            <input type="range" id="pitchSlider" min="-5" max="5" value="-1" step="1">
+          </div>
+        </div>
+      </div>
+
+      <!-- Botones de Acción -->
+      <div class="btn-group">
+        <button type="button" class="btn-preview" id="btnPreview">
+          🎧 Probar Voz
+        </button>
+        <button type="button" class="btn-generate" id="btnGenerate">
+          ✨ Generar Audio
+        </button>
+      </div>
+
+      <!-- Barra de Estado -->
+      <div class="status-bar" id="statusBar">
+        <span>Listo para generar. Escribe tu texto arriba.</span>
+      </div>
+
+      <!-- Tarjeta Reproductor y Descarga -->
+      <div class="player-card" id="playerCard">
+        <div class="player-title">
+          <span>🎧 Resultado Generado</span>
+          <span class="voice-badge-tag" id="currentVoiceBadge">es-MX-JorgeNeural</span>
+        </div>
+
+        <audio id="audioPlayer" controls></audio>
+
+        <div class="download-options">
+          <button type="button" class="btn-download-dsp" id="btnDownloadDsp">
+            ⬇️ Descargar Masterizado (DSP)
+          </button>
+          <a id="btnDownloadRaw" class="btn-download-raw" download="voz_narracion.mp3" href="#">
+            ⬇️ Descargar Original (MP3)
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <span>⚡ Servidores en la Nube Netlify • Sin límite • $0 Costo</span>
+      <span>Instalable en iPhone (Safari) y Android (Chrome) como App</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
