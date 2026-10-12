@@ -314,11 +314,19 @@ document.addEventListener('DOMContentLoaded', () => {
     setStatus('Conectando con la nube y sintetizando voz neuronal...', 'loading');
 
     try {
-      const response = await fetch('/api/tts', {
+      let response = await fetch('/api/tts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, voice, rate, pitch })
       });
+
+      if (response.status === 404) {
+        response = await fetch('/.netlify/functions/tts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text, voice, rate, pitch })
+        });
+      }
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
